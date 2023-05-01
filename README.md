@@ -12,17 +12,16 @@ This dataset consists of highly unbalanced credit card transactions from Europea
 ### Importing the Data
 
 First we imported the data with pandas read_csv from our locally downloaded csv from the link above: 
-[display head() results]
+![Screenshot the imported dataset using pandas.dataframe.head().](https://github.com/mjk34/mjk34.github.io/blob/main/images/import.png)
 
-[display discribe() results]
+![Screenshot the pandas.dataframe.describe().](https://github.com/mjk34/mjk34.github.io/blob/main/images/describe.png)
 
 
 ### Check for Missing Values
 
 Checked for null or missing values both manually (nested loop) and using pandas dataframe isnull sum. In both checks, I was not able to find any missing values, they should be good for processing.
 
-[display results]
-
+![Screenshot manual and automatic error check.](https://github.com/mjk34/mjk34.github.io/blob/main/images/error_count.png)
 
 ### Partition the Data
 
@@ -33,11 +32,11 @@ In this project, I will split the dataset into 70% training and 30% testing and 
 
 Due to the PCA features, there are an overwelming number of features/dimensions, we would normally want to reduce its size and select the most important features to improve runtime and performance. The problem with using eigenvalues or PCA is that Features V1, V2, … V28 are the result of PCA transformation and the amount of information/meaning between those features is equally spread out. This can be seen below:
 
-[display variance graph]
+![Screenshot PCA/Eigenvalue feature variance.](https://github.com/mjk34/mjk34.github.io/blob/main/images/pci.png)
 
 One solution I've seen in order to select features is the use of the feature importance function from the Random Forest Classifier for making accurate predictions. Feature importance looks into how much each feature contributes to the overall accuracy of the model and calculates a score for each feature based on the number of times its used in the decision making process. Here's a look at the feature importance scores for our dataset:
 
-[display feature importance graph]
+![Screenshot of feature importance.](https://github.com/mjk34/mjk34.github.io/blob/main/images/feature_importance.png)
 
 Based on RandomForest Feature Importance, should we take the first 6 features: V17, V12, V14, V10, V16, V11. We can retain above 70% of the information using only 1/4th of the features.
 
